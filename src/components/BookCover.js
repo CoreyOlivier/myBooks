@@ -1,9 +1,11 @@
 import React from "react";
+import { get } from "lodash";
 
-export function BookCover() {
+export function BookCover({ book }) {
+  console.log(get(book, ["VolumeInfo"]));
   return (
     <img
-      src="https://images-na.ssl-images-amazon.com/images/I/41m%2B6YgCmrL._SX322_BO1,204,203,200_.jpg"
+      src={get(book, ["volumeInfo", "imageLinks", "smallThumbnail"])}
       alt="cover"
     />
   );
